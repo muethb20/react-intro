@@ -1,11 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Reminders from "./components/Reminders";
 
 function App() {
   return (
     <div className="App">
-      <h1>First Component!</h1>
+        <Header/>
+        <Reminders/>
+        <Footer/>
     </div>
   );
 }
