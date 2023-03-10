@@ -4,3 +4,8 @@ export interface IReminder {
     when: Date;
     who: string
 }
+
+export interface INewReminder {
+    onRise : () => void;
+    onClickAdd: (title: string) => void;
+}
