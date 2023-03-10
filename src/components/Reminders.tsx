@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {IReminder} from "../models/interfaces";
 import './ReminderList.css'
+import Form from "./Form";
 
 function Reminders() {
     //const reminders: IReminder[] = [{
@@ -28,8 +29,28 @@ function Reminders() {
         setReminders(reminders.slice());
     }
 
+
+    let [counter, setCounter] = useState(1)
+
+    const rise = () => {
+        ++counter;
+        setCounter(counter);
+    }
+
+    const lower = () => {
+        --counter;
+        setCounter(counter);
+    }
+
+    const addReminder = (title:string, date:string, person:string) => {
+        let newReminder:IReminder = {id:reminders.length+1, todo:title, when: new Date(date), who:person};
+
+        setReminders([...reminders, newReminder]);
+    }
+
     return (
         <div>
+            <h2>Reminders List</h2>
             <ul>
                 {
                     reminders.map((value) => {
@@ -37,9 +58,18 @@ function Reminders() {
                 })
                 }
                 <button onClick={onDelete}>Löschen</button>
+
+                <h2>Form Component</h2>
+                <p>{counter}</p>
+
+                <Form onRise={rise} onLower={lower} onClickAdd={addReminder}/>
+
+
             </ul>
         </div>
     );
+
+
 }
 
 export default Reminders;

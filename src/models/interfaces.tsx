@@ -6,6 +6,7 @@ export interface IReminder {
 }
 
 export interface INewReminder {
-    onRise : () => void;
-    onClickAdd: (title: string) => void;
+    onRise : () => void
+    onLower : () => void;
+    onClickAdd: (title: string, date: string, who:string) => void;
 }
